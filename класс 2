@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+    class HungerGamesActor : Actor
+    {
+       
+        public string Role;
+        public bool IsWinner;
+
+        public HungerGamesActor(string n, int a, string c, int f, string r, bool win)
+            : base(n, a, c, f)
+        {
+            Role = r; IsWinner = win;
+        }
+
+      
+        public override void ShowInfo()
+        {
+            Console.WriteLine($"{Name} в роли {Role}");
+            Console.WriteLine($"Статус: {(IsWinner ? "Победитель" : "Участник")}");
+        }
+
+        public override double CalculateRating()
+        {
+            double baseRating = base.CalculateRating();
+            return IsWinner ? baseRating + 5.0 : baseRating + 2.0;
+        }
+
+     
+        public new void CommonAction()
+        {
+            Console.WriteLine("Сражается на арене!");
+        }
+
+        public new string GetTypeName()
+        {
+            return "Трибут Голодных игр";
+        }
+
+       }
+    }
+
+    
