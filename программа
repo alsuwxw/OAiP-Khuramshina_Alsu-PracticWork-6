@@ -1,0 +1,38 @@
+using ConsoleApp9;
+
+
+class Program
+{
+    static void Main()
+    {
+        HungerGamesActor jennifer = new HungerGamesActor(
+            "Дженнифер Лоуренс",
+            33,
+            "США",
+            25,
+            "Катнисс Эвердин",
+            true
+        );
+
+        Console.WriteLine("Информация об актёре \n");
+
+        jennifer.Introduce();
+        Console.WriteLine($"Совершеннолетняя: {jennifer.IsAdult()}");
+
+       
+        Console.WriteLine();
+        jennifer.ShowInfo();
+        Console.WriteLine($"Рейтинг: {jennifer.CalculateRating():F1}");
+
+        Console.WriteLine();
+        jennifer.CommonAction();       
+        Console.WriteLine(jennifer.GetTypeName()); 
+
+        Console.WriteLine();
+        Actor baseActor = jennifer;
+        baseActor.CommonAction();        
+        Console.WriteLine(baseActor.GetTypeName()); 
+
+       
+    }
+}
